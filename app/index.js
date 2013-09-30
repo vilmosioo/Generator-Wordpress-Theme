@@ -144,7 +144,7 @@ WordpressThemeGenerator.prototype.app = function app() {
 WordpressThemeGenerator.prototype.projectdevfiles = function projectdevfiles() {
   this.copy('Gruntfile.js');
   this.copy('.jshintrc');
-  this.copy('.gitignore');
+  this.copy('_.gitignore', '.gitignore');
   this.copy('.bowerrc');
   this.copy('README.md');
 };
