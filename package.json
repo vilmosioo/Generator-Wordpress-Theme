@@ -1,6 +1,6 @@
 {
   "name": "generator-wordpress-theme",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "A WordPress theme Yeoman generator",
   "keywords": [
     "wordpress", "theme", "PHP"
