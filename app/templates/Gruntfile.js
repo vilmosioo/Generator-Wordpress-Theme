@@ -103,9 +103,7 @@ module.exports = function(grunt) {
 				cwd: 'components',
 				src: [
 					'jquery/jquery.min.js',
-					<% if (dependencies.modernizr) { %>
-					'modernizr/modernizr.js',
-					<% } if (dependencies.fontAwesome) { %>
+					<% if (dependencies.fontAwesome) { %>
 					'font-awesome/css/font-awesome.min.css',
 					'font-awesome/css/font-awesome-ie7.min.css',
 					'font-awesome/font/*',
@@ -114,7 +112,14 @@ module.exports = function(grunt) {
 				],
 				dest: '<%%= config.dist %>/components'
 			},
-		}
+		},<% if (dependencies.modernizr) { %>
+		modernizr: {
+			devFile: "components/modernizr/modernizr.js",
+			outputFile: "dist/components/modernizr/modernizr.js",
+			files: [
+				'app/**/*'
+			]
+		}<% } %>
 	});
 
 	grunt.registerTask('build', [
@@ -123,7 +128,8 @@ module.exports = function(grunt) {
 		'compass', // process all scss file and dump result in .tmp
 		'cssmin', // minify all css files from app folder and move them to dist folder
 		'uglify', // uglify all JS files from app folder and move them to in the dist folder
-		'copy', // copy rest of files from app folder to dist (php ,html, txt, ico, fonts) and copy components in dist
+		'copy', // copy rest of files from app folder to dist (php ,html, txt, ico, fonts) and copy components in dist<% if (dependencies.modernizr) { %>
+		'modernizr' // parse mdoernizr and copy only necessary tests<% } %>
 	]);
 
 	grunt.registerTask('server', [

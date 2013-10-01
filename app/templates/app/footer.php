@@ -20,12 +20,12 @@
 		
 		<?php wp_footer(); ?>
 		
-		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo THEME_PATH; ?>/components/jquery/jquery.min.js"%3E%3C/script%3E'))</script>
+		<script>!window.jQuery && document.write(unescape('%3Cscript src="<?php echo THEME_PATH; ?>/components/jquery/jquery.min.js"%3E%3C/script%3E'))</script><% if (dependencies.modernizr) { %>
 		<script> // Change UA-XXXXX-X to be your site's ID
 			window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
 			Modernizr.load({
 			  load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
 			});
-		</script>
+		</script><% } %>
 	</body>
 </html>
