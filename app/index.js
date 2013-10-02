@@ -48,11 +48,27 @@ WordpressThemeGenerator.prototype.askFor = function askFor() {
     }
   };
 
+  var dependencies = [];
+  if(this.defaults.dependencies.modernizr) dependencies.push("Modernizr");
+  if(this.defaults.dependencies.fontAwesome) dependencies.push("Font Awesome");
+
+  var templates = [];
+  if(this.defaults.templates.customPost) templates.push("custom post");
+  if(this.defaults.templates.metabox) templates.push("metabox");
+  if(this.defaults.templates.settings) templates.push("settings");
+  if(this.defaults.templates.widget) templates.push("widget");
+  if(this.defaults.templates.shortcode) templates.push("shortcode");
+
+  var msg = "\n\tAuthor details:\t\t[empty]\n" + 
+  "\tTheme details:\t\t" + this.defaults.theme.name + " v" + this.defaults.theme.version + " " + this.defaults.theme.description + "\n"+
+  "\tDependencies:\t\t" + (dependencies.length ? dependencies.join(", ") : "[none]") + "\n" +
+  "\tTemplates:\t\t" + (templates.length ? templates.join(", ") : "[none]");
+
   var prompts = [
     {
       type: 'confirm',
       name: 'defaults',
-      message: 'Install default configuration?',
+      message: 'Install default configuration?\n' + msg,
       default: true
     },
     {
