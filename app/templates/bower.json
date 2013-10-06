@@ -2,12 +2,10 @@
   "name": "<%= _.camelize(theme.name) %>",
   "version": "0.0.1",
   "dependencies": {
-		"wordpress-tools": "~0.0.3",
 		"bootstrap-sass": "~3.0.0",
-		"jquery": "~2.0.3"<% if (dependencies.modernizr) { %>
-		,"modernizr" : "~2.6.2"
-		<% } if (dependencies.fontAwesome) { %>
-		,"font-awesome": "~3.2.1"
-		<% } %>
+		"jquery": "~2.0.3",<% if (dependencies.modernizr) { %>
+		"modernizr" : "~2.6.2",<% } if (dependencies.fontAwesome) { %>
+		"font-awesome": "~3.2.1",<% } %>
+		"wordpress-tools": "~0.0.3"
   }
 }
