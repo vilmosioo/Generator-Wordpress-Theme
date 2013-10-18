@@ -97,17 +97,22 @@ module.exports = function(grunt) {
 					'**/*.{md}'
 				],
 				dest: '<%%= config.dist %>'
-			},
+			},<% if (dependencies.fontAwesome) { %>
+			awesome: {
+				expand: true,
+				cwd: 'components/font-awesome',
+				src: [
+					'css/font-awesome.min.css',
+					'css/font-awesome-ie7.min.css',
+					'font/*'
+				],
+				dest: '<%%= config.dist %>'
+			},<% } %>
 			components: {
 				expand: true,
 				cwd: 'components',
 				src: [
 					'jquery/jquery.min.js',
-					<% if (dependencies.fontAwesome) { %>
-					'font-awesome/css/font-awesome.min.css',
-					'font-awesome/css/font-awesome-ie7.min.css',
-					'font-awesome/font/*',
-					<% } %>
 					'wordpress-tools/**/*'
 				],
 				dest: '<%%= config.dist %>/components'
