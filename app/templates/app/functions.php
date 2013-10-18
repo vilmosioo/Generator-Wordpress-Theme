@@ -1,9 +1,9 @@
 <?php
-require_once 'components/wordpress-tools/Hyperion.php';<% if (templates.settings) { %>
-require_once 'components/wordpress-tools/Theme_Options.php';<% } if (templates.customPost) { %>
-require_once 'components/wordpress-tools/Custom_Post.php';<% } if (templates.widget) { %>
-require_once 'components/wordpress-tools/Custom_Widget.sample.php';<% } if (templates.metabox) { %>
-require_once 'components/wordpress-tools/Metabox.php';<% } %>
+require_once 'inc/Hyperion.php';<% if (templates.settings) { %>
+require_once 'inc/Theme_Options.php';<% } if (templates.customPost) { %>
+require_once 'inc/Custom_Post.php';<% } if (templates.widget) { %>
+require_once 'inc/Custom_Widget.sample.php';<% } if (templates.metabox) { %>
+require_once 'inc/Metabox.php';<% } %>
 
 class <%= _.camelize(theme.name) %>Theme extends Hyperion{
 	private $theme_options;
@@ -54,7 +54,7 @@ class <%= _.camelize(theme.name) %>Theme extends Hyperion{
 	function add_scripts_and_styles(){
 		// add any dependency libraries
 		<% if (dependencies.modernizr) { %>
-		wp_enqueue_script( 'hyperion-modernizr', THEME_PATH.'/components/modernizr/modernizr.js', array(), '2.6.2', true);
+		wp_enqueue_script( 'hyperion-modernizr', THEME_PATH.'/js/vendor/modernizr/modernizr.js', array(), '2.6.2', true);
 		<% } if (dependencies.fontAwesome) { %>
 		wp_enqueue_style( 'hyperion-font-awesome', THEME_PATH.'/css/font-awesome.min.css'); 
 		<% } %>
