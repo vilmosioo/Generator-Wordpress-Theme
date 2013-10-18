@@ -1,9 +1,4 @@
 <?php
-// define constants
-define( 'THEME_PATH', get_bloginfo( 'stylesheet_directory' ) );
-define( 'HOME_URL', home_url() );
-if ( ! isset( $content_width ) ) $content_width = 1200;
-
 require_once 'components/wordpress-tools/Hyperion.php';<% if (templates.settings) { %>
 require_once 'components/wordpress-tools/Theme_Options.php';<% } if (templates.customPost) { %>
 require_once 'components/wordpress-tools/Custom_Post.php';<% } if (templates.widget) { %>

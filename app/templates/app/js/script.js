@@ -14,9 +14,9 @@ var APP = (function (app, $) {
 
 	app.init = function(){
 		var i = 0;
-		console.log(i);
+		console.log(i, $);
 		// add some code
-	}
+	};
 
 	// add more code here
 
