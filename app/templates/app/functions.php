@@ -56,7 +56,7 @@ class <%= _.camelize(theme.name) %>Theme extends Hyperion{
 		<% if (dependencies.modernizr) { %>
 		wp_enqueue_script( 'hyperion-modernizr', THEME_PATH.'/js/vendor/modernizr/modernizr.js', array(), '2.6.2', true);
 		<% } if (dependencies.fontAwesome) { %>
-		wp_enqueue_style( 'hyperion-font-awesome', THEME_PATH.'/css/font-awesome.min.css'); 
+		wp_enqueue_style( 'hyperion-font-awesome', '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css'); 
 		<% } %>
 		if(is_front_page()){ 
 			// add custom scripts/styles
