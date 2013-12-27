@@ -1,9 +1,7 @@
 language: node_js
 node_js:
-  - "0.8"
-before_script:
-  - npm install -g yo grunt-cli bower
-  - gem install compass
-  - bower cache clean
-  - npm clear cache
-  - npm link
+  - '0.10'
+  - '0.8'
+before_install:
+  - currentfolder=${PWD##*/}
+  - if [ "$currentfolder" != 'generator-wordpress-theme' ]; then cd .. && eval "mv $currentfolder generator-wordpress-theme" && cd generator-wordpress-theme; fi
