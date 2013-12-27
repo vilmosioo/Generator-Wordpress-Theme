@@ -1,0 +1,20 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.1",
+  "homepage": "TODO",
+  "authors": [
+    "TODO <TODO>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wordpress-tools": "~0.0.6"
+  }
+}
