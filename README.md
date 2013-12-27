@@ -1,4 +1,4 @@
-# A WordPress theme Yeoman generator 
+# A WordPress theme Yeoman generator [![Build Status](https://travis-ci.org/vilmosioo/Generator-Wordpress-Theme.png?branch=master)](https://travis-ci.org/vilmosioo/Generator-Wordpress-Theme)
 
 A theme generator for [WordPress](http://wordpress.org).
 
