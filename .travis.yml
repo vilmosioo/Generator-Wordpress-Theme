@@ -6,3 +6,4 @@ before_script:
   - gem install compass
   - bower cache clean
   - npm clear cache
+  - npm link
