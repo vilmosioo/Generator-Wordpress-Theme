@@ -2,14 +2,7 @@ language: node_js
 node_js:
   - "0.8"
 before_script:
-  - npm install -g yo & npm install -g grunt-cli & npm install -g bower
+  - npm install -g yo grunt-cli bower
   - gem install compass
   - bower cache clean
   - npm clear cache
-  - npm link
-script:
-  - mkdir test && cd test
-  - yo wordpress-theme
-  - npm install
-  - bower install
-  - grunt
