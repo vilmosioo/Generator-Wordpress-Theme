@@ -192,7 +192,7 @@ WordpressThemeGenerator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function (props) {
-    if(this.defaults){
+    if(props.defaults){
       this.author = this.defaults.author;
       this.theme = this.defaults.theme;
       this.dependencies = this.defaults.dependencies;
