@@ -37,7 +37,7 @@ class <%= _.camelize(theme.name) %>Theme extends Hyperion{
 	// Customise the footer in admin area
 	function remove_footer_admin () {
 		echo get_avatar('<%= author.email %>' , '40' );
-		echo 'Theme designed and developed by <a href="<%= author.uri %>" target="_blank"><%= author.name %></a> and powered by <a href="http://wordpress.org" target="_blank">WordPress</a>.';
+		echo 'Theme designed and developed by <a href="<%= author.uri %>" target="_blank"><%= author.name %></a> and powered by <a href="http://wordpress.org" target="_blank">WordPress</a>. Version @@version';
 	}
 	
 	// add custom admin styles

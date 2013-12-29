@@ -30,16 +30,16 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			general: {
-				files: ['<%%= config.app %>/js/**/*.js', '.tmp/*.css'],
-				tasks: ['build']
+				files: ['<%%= config.app %>/**/*.html', '<%%= config.app %>/**/*.php'],
+				tasks: ['newer:copy', 'newer:replace']
 			},
-			templates: {
-				files: ['<%%= config.app %>/**/*.php', '<%%= config.app %>/**/*.html'],
-				tasks: ['copy:templates']
+			js: {
+				files: ['<%%= config.app %>/js/**/*.js'],
+				tasks: ['newer:uglify']
 			},
-			compass: {
+			sass: {
 				files: ['<%%= config.app %>/**/*.scss'],
-				tasks: ['compass']
+				tasks: ['newer:compass', 'newer:cssmin']
 			}
 		},
 		compass: {
@@ -114,7 +114,20 @@ module.exports = function(grunt) {
 				],
 				dest: '<%%= config.dist %>/inc'
 			},
-		},<% if (dependencies.modernizr) { %>
+		},
+		replace: {
+			options: {
+				variables: {
+					'version': pkg.version || '0.0.1'
+				}
+			},
+			files: {
+				expand: true,
+				cwd: '<%%= config.dist %>',
+				src: '**/*',
+				dest: '<%%= config.dist %>'
+			}
+		}<% if (dependencies.modernizr) { %>,
 		modernizr: {
 			devFile: "components/modernizr/modernizr.js",
 			outputFile: "dist/js/vendor/modernizr/modernizr.js",
@@ -131,7 +144,8 @@ module.exports = function(grunt) {
 		'cssmin', // minify all css files from app folder and move them to dist folder
 		'uglify', // uglify all JS files from app folder and move them to in the dist folder
 		'copy', // copy rest of files from app folder to dist (php ,html, txt, ico, fonts) and copy components in dist<% if (dependencies.modernizr) { %>
-		'modernizr' // parse mdoernizr and copy only necessary tests<% } %>
+		'modernizr', // parse mdoernizr and copy only necessary tests<% } %>
+		'replace' // replaces and inserts the theme version
 	]);
 
 	grunt.registerTask('server', [
