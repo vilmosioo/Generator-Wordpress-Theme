@@ -72,5 +72,6 @@ class <%= _.camelize(name) %>_Plugin {
 
 } // end class
 
-$GLOBALS['<%= _.camelize(name) %>_Plugin'] = <%= _.camelize(name) %>_Plugin::init();
+add_action( 'plugins_loaded', array('<%= _.camelize(name) %>_Plugin', 'init' ) );
+
 ?>
